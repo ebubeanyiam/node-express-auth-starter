@@ -15,6 +15,7 @@ export const validateRequest =
       return next();
     } catch (error) {
       const zErr = error as ZodError;
+
       throw new RequestValidationError(zErr);
     }
   };

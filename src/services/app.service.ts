@@ -5,7 +5,6 @@ import cors from "cors";
 import morgan from "morgan";
 
 import helmet from "helmet";
-import config from "config";
 import compress from "compression";
 
 import { allowCompression } from "../helpers/compress";

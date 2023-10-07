@@ -3,13 +3,14 @@ import { connect } from "./mongoose.service";
 
 import app from "./app.service";
 
-const _port = process.env.PORT || config.get<string>("port") || 4000;
+const _port = process.env.PORT || config.get<string>("port");
+const port = _port || 4000;
 
 export default (async () => {
   // open mongoose connection
   connect();
 
-  app.listen(_port, () => {
-    console.info(`Authentication server started on port: ${_port}`);
+  app.listen(port, () => {
+    console.info(`Authentication server started on port: ${port}`);
   });
 })();

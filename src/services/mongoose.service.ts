@@ -1,5 +1,5 @@
-import config from "config";
 import mongoose from "mongoose";
+import config from "config";
 
 const mongoUri = config.get<string>("mongoUri");
 import { DatabaseConnectionError } from "../errors/database-connection-error";
@@ -13,7 +13,6 @@ mongoose.set("debug", true);
  * @returns {object} Mongoose connection
  * @public
  */
-
 export const connect = (): object => {
   if (!mongoUri) throw new DatabaseConnectionError();
 

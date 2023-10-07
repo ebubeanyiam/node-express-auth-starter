@@ -1,5 +1,5 @@
 import { BAD_REQUEST, INTERNAL_SERVER_ERROR } from "http-status";
-import { Request, Response /* NextFunction */ } from "express";
+import { Request, Response, NextFunction } from "express";
 import axios from "axios";
 import { JsonWebTokenError, TokenExpiredError } from "jsonwebtoken";
 
@@ -12,9 +12,9 @@ interface MongoServerError {
 
 export const errorHandler = (
   err: Error,
-  _: Request,
-  res: Response
-  // next: NextFunction
+  req: Request,
+  res: Response,
+  next: NextFunction
 ) => {
   if (err instanceof TokenExpiredError) {
     return res.status(403).send({
